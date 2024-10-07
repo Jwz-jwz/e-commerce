@@ -1,6 +1,8 @@
 import { Cart } from "@/svg/Cart";
+import Link from "next/link";
 
 export const Header = ({ url }) => {
+  //   const router = useRouter();
   return (
     <div
       className="h-[100px] rounded-[20px] flex justify-between
@@ -16,31 +18,19 @@ export const Header = ({ url }) => {
         <option>Shoes</option>
         <option>Pants</option>
       </select>
-
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-        Add new product
-      </button>
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">New product details</h3>
-          <p className="py-4">Name:{}</p>
-          <p className="py-4">Description:{}</p>
-          <p className="py-4">Price:{}</p>
-          <img src={url} alt="" />
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Add</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
-      <button className="btn w-[50px] flex">
-        <Cart />
-      </button>
+      <Link href="/adminpanel">
+        <button
+          className="btn"
+          //   onClick={() => document.getElementById("my_modal_1").showModal()}
+        >
+          Admin
+        </button>
+      </Link>
+      <Link href="/mycart">
+        <button className="btn w-[50px] flex">
+          <Cart />
+        </button>
+      </Link>
     </div>
   );
 };
